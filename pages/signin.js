@@ -16,7 +16,7 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-function SigninPage() {
+function SigninPage(props) {
   const classes = useStyle();
   const tokenRef = useRef();
   return (
@@ -35,6 +35,7 @@ function SigninPage() {
                   maxAge: 30 * 24 * 60 * 60, // 30 days
                 }
               );
+              props.apolloClient.clear();
               redirect(null, `/`);
             }}
           >

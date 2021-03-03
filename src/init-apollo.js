@@ -122,6 +122,9 @@ function create(initialState, { getToken, context }) {
     connectToDevTools: isBrowser,
   });
   client.logout = logout;
+  client.clear = () => {
+    apolloClient = null;
+  };
 
   return client;
 }
